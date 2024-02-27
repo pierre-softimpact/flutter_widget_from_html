@@ -93,6 +93,7 @@ mixin WebViewFactory on WidgetFactory {
             defaultStyles: (element) {
               // other tags that share the same logic:
               // - IMG
+              // - SVG
               //
               // consider update them together if this changes
               final attrs = element.attributes;
@@ -138,7 +139,6 @@ mixin WebViewFactory on WidgetFactory {
             },
           ),
         );
-        break;
     }
     return super.parse(meta);
   }

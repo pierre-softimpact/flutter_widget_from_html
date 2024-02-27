@@ -2,6 +2,9 @@ name: Demo
 on:
   push:
 
+permissions:
+  contents: read
+
 jobs:
   build:
     defaults:
@@ -9,6 +12,10 @@ jobs:
         working-directory: demo_app
     environment:
       name: vercel
+    permissions:
+      # write permissions are needed for `comment-on-github` step
+      contents: write
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -17,7 +24,7 @@ jobs:
         with:
           cache: true
       - name: Gradle cache
-        uses: gradle/gradle-build-action@87a9a15658c426a54dd469d4fc7dc1a73ca9d4a6 # v2.10.0
+        uses: gradle/gradle-build-action@29c0906b64b8fc82467890bfb7a0a7ef34bda89e # v3.1.0
 
       - name: Run flutter build apk --debug
         run: |
@@ -84,7 +91,7 @@ jobs:
             _url=$( now --token "$TOKEN" )
           fi
           echo "url=${_url}" >> $GITHUB_OUTPUT
-      - name: Create commit comment
+      - name: Create comment
         if: steps.now.conclusion == 'success'
         uses: daohoangson/comment-on-github@35b21121fdbadf807678bec8210cdd7f22a934fe # v2.2.2
         env:

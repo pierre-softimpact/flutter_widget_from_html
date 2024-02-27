@@ -1,3 +1,13 @@
+## 0.14.11
+
+- Fix infinite `TextStyle.height` (#1147)
+- Deprecate `InheritedProperties.style` getter (#1147)
+
+## 0.14.10+1
+
+- Fix default border color to match text color (#1123)
+- Fix SVG does not respect width/height attributes (#1144)
+
 ## 0.14.9
 
 - Fix justify text inside a table (#1120)
@@ -269,7 +279,7 @@ This release includes some changes that may require migration if you have a cust
 - Add support for sandbox="allow-scripts" (#420)
 - Add support for file:// images (#432)
 - Allow getting parsed inline styles from `dom.Element` directly (#367)
-- Improve support for inline styles border, border-collapse and box-sizing  (#365)
+- Improve support for inline styles border, border-collapse and box-sizing (#365)
 - Fix line metrics are unavailable on Flutter web (#383)
 - Fix IMG tag with dimensions being stretched (#429)
 
